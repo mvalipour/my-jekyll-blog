@@ -1,5 +1,8 @@
 # This is the default format. 
 # For more see: http://jekyllrb.com/docs/permalinks/
+
+markdown: rdiscount
+
 permalink: /:categories/:year/:month/:day/:title
 
 exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
@@ -18,11 +21,11 @@ ftp_passive: false
 # Themes are encouraged to use these universal variables 
 # so be sure to set them if your theme uses them.
 #
-title : Jekyll Bootstrap
-tagline: Site Tagline
+title : Mohammad Valipour's Blog
+tagline: false
 author :
-  name : Name Lastname
-  email : blah@email.test
+  name : Mohammad Valipour
+  email : valipour [at] gmail [dot] com
   github : username
   twitter : username
   feedburner : feedname

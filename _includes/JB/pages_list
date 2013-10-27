@@ -26,7 +26,7 @@ Usage:
   {% for node in pages_list %}
     {% if node.title != null %}
       {% if group == null or group == node.group %}
-      	{% if page.url == node.url %} {% assign className = "active" %} {% endif %}
+      	{% capture className %} {% if page.url == node.url %} active {% endif %} {% endcapture %}
 			<li class="{{ className }}">
 				<a href="{{ BASE_PATH }}{{node.url}}" class="{{ className }}">{{node.title}}</a>
 				{% if node.date %}

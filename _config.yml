@@ -9,13 +9,13 @@ exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
 pygments: true
 
 port: 4000
-baseurl: /mo/temp/
+baseurl: /mo/blog/
 
 tag_page_layout: post
 tag_page_dir: tag
 
 ftp_host: manorey.net
-ftp_dir: /manorey.net/wwwroot/mo/temp
+ftp_dir: /manorey.net/wwwroot/mo/blog
 ftp_passive: false
 
 # Themes are encouraged to use these universal variables 
@@ -95,7 +95,7 @@ JB :
   comments :
     provider : disqus
     disqus :
-      short_name : jekyllbootstrap
+      short_name : valipour
     livefyre :
       site_id : 123
     intensedebate :

@@ -5,6 +5,8 @@
     <title>{{ site.title }} :: {{ page.title }}</title>
     {% if page.description %}<meta name="description" content="{{ page.description }}">{% endif %}
    
+	<link rel="shortcut icon" type="image/x-icon" href="{{ BASE_PATH }}favicon.ico" />
+
     <meta name="author" content="{{ site.author.name }}">
 
     <!-- Enable responsive viewport -->
@@ -30,9 +32,11 @@
     <!-- atom & rss feed -->
     <link href="{{ BASE_PATH }}{{ site.JB.atom_path }}" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
     <link href="{{ BASE_PATH }}{{ site.JB.rss_path }}" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+	
+	<link href="{{ BASE_PATH }}assets/prism/prism-okaidia.css" rel="stylesheet" />
 </head>
 
-<body>
+<body class='{{ page.rootClass }}'>
     <div class="navbar">
         <div class="navbar-inner">
             <div class="container-narrow">
@@ -42,17 +46,10 @@
                 </a>
                 <ul class="nav nav-pills">
                     {% assign pages_list = site.pages %}
-            {% assign group = 'navigation' %}
-            {% include JB/pages_list %}
-         
+					{% assign group = 'navigation' %}
+					{% include JB/pages_list %}
                 </ul>
             </div>
-        </div>
-    </div>
-
-    <div class="page-header">
-        <div class="container-narrow">
-            <h1>{{ page.title }} {% if page.tagline %} <small>{{ page.tagline }}</small>{% endif %}</h1>
         </div>
     </div>
 
@@ -60,18 +57,21 @@
         {{ content }}
     </div>
 
-    <hr>
-    <div class="container-narrow">
+	<div class='footer'>
+	    <div class="container-narrow">
         <footer>
-            <p>
                 &copy; {{ site.time | date: '%Y' }} {{ site.author.name }}
           with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
                 and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
-            </p>
         </footer>
     </div>
 
+	</div>
+
     {% include JB/analytics %}
  
+	<script src="{{ BASE_PATH }}assets/prism/prism.js"></script>
+	<script src="{{ BASE_PATH }}assets/prism/prism-csharp.js"></script>
+	<script src="{{ BASE_PATH }}assets/prism/prism-gherkin.js"></script>
 </body>
 </html>

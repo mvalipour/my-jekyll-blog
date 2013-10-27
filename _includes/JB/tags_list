@@ -22,7 +22,7 @@ Usage:
 {% else %}
   {% if tags_list.first[0] == null %}
     {% for tag in tags_list %} 
-    	<a href="{{ BASE_PATH }}{{ site.JB.tags_path }}#{{ tag }}-ref">
+		<a href="{{ BASE_PATH }}{{ site.JB.tags_path }}#{{ tag }}-ref">
 			{{ tag }}
 			{% if tag_show_number %} ({{ tag.size }}) {% endif %}
 		</a>
@@ -30,11 +30,11 @@ Usage:
     {% endfor %}
   {% else %}
     {% for tag in tags_list %} 
-			<a href="{{ BASE_PATH }}{{ site.JB.tags_path }}#{{ tag[0] }}-ref">
-				{{ tag[0] }}
-				{% if tag_show_number %} ({{ tag[0].size }}) {% endif %}
+		<a href="{{ BASE_PATH }}{{ site.JB.tags_path }}#{{ tag[0] }}-ref">
+			{{ tag[0] }}
+			{% if tag_show_number %} ({{ tag[0].size }}) {% endif %}
 			</a>
-		{%unless forloop.last %} • {% endunless %}
+			{%unless forloop.last %} • {% endunless %}
     {% endfor %}
   {% endif %}
 {% endif %}

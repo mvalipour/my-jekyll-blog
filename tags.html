@@ -16,7 +16,7 @@ group: navigation
 <hr/>
 
 {% for tag in site.tags %} 
-<div  id="{{ tag[0] }}-ref">
+<div  id="{{ tag[0] }}-ref" class='blog-post-set'>
   <h2>{{ tag[0] }}</h2>
   <ul>
     {% assign pages_list = tag[1] %}  

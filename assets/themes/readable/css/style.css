@@ -206,3 +206,5 @@ text-align: center;}
 .pagination .next {text-align: right;}
 
 .comment-box {background:#EBF5CC; border-top:5px solid #D6EB99; padding-top:15px;}
+
+.blog-post-set ul li .date-label {color:#ccc; font-size:smaller;}

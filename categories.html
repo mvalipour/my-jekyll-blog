@@ -16,7 +16,7 @@ group: navigation
 <hr/>
 
 {% for category in site.categories %} 
-	<div  id="{{ category[0] }}-ref">
+	<div  id="{{ category[0] }}-ref" class='blog-post-set'>
 		<h2>{{ category[0] | join: "/" }}</h2>
 		<ul>
 			{% assign pages_list = category[1] %}  

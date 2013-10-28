@@ -149,53 +149,75 @@ undefined; // used to indicate a value is not currently present (although undefi
 ```
 <p dir='rtl'>false, null, undefined, NaN, 0 و "" مقدار نادرست و هر چیز دیگر مقدار درست طلقی میشوند.</p>
 <p dir='rtl'>توجه داشته باشید که 0 نادرست و "0" درست طلقی میشوند حتی در عبارت 0=="0".</p>
+
+<h2 dir='rtl'> 2. متغیر ها، آرایه ها و شئ ها </h2>
+
+<p dir='rtl'>متغیر ها با کلید واژه var تعریف میشوند. اشیا در جاوااسکریپت دارای نوع پویا هستند، </p>
+<p dir='rtl'>بدین شکل که برای تعریف نیازی به مشخص کردن نوع متعیر نیست. </p>
+<p dir='rtl'>برای مقدار دهی از علامت مساوی استفاده میشود. </p>
 ```js
-
-///////////////////////////////////
-// 2. Variables, Arrays and Objects
-
-// Variables are declared with the var keyword. Javascript is dynamically typed,
-// so you don't need to specify type. Assignment uses a single = character.
 var someVar = 5;
+```
 
-// if you leave the var keyword off, you won't get an error...
+<p dir='rtl'>اگر کلید واژه var را قرار ندهید، هیچ خطایی دریافت نخواهید کرد... </p>
+```js
 someOtherVar = 10;
+```
 
-// ...but your variable will be created in the global scope, not in the scope
-// you defined it in.
+<p dir='rtl'>در عوض  متغیر شما در گستره ی کل برنامه تعریف شده خواهد بود. </p>
 
-// Variables declared without being assigned to are set to undefined.
+<p dir='rtl'>متغیر هایی که تعریف شده ولی مقدار دهی نشوند، دارای مقدار undefined خواهند بود. </p>
+```js
 var someThirdVar; // = undefined
+```
 
-// There's shorthand for performing math operations on variables:
+<p dir='rtl'>برای اعمال عملگر های محاسباتی، میانبر هایی وجود دارند: </p>
+```js
 someVar += 5; // equivalent to someVar = someVar + 5; someVar is 10 now
 someVar *= 10; // now someVar is 100
+```
 
-// and an even-shorter-hand for adding or subtracting 1
+<p dir='rtl'>حتی از این هم کوتاهتر برای اضافه یا کم کردن یک عدد با مقدار یک. </p>
+```js
 someVar++; // now someVar is 101
 someVar--; // back to 100
+```
 
-// Arrays are ordered lists of values, of any type.
+<p dir='rtl'>آرایه ها در واقع لیستی مرتب شده از مقادیر مختلف از هر نوعی هستند. </p>
+```js
 var myArray = ["Hello", 45, true];
+```
 
-// Their members can be accessed using the square-brackets subscript syntax.
-// Array indices start at zero.
+<p dir='rtl'>به اعضای یک آرایه میتوان از طریق قرار دادن کروشه در جلوی نام آن دسترسی پیدا کرد. </p>
+<p dir='rtl'>نمایه ی آرایه از صفر شروع میشود. </p>
+```js
 myArray[1]; // = 45
+```
 
-// Arrays are mutable and of variable length.
+<p dir='rtl'>آرایه ها ناپایدار و دارای طول قابل تغییر هستند </p>
+```js
 myArray.push("World");
 myArray.length; // = 4
+```
 
-// JavaScript's objects are equivalent to 'dictionaries' or 'maps' in other
-// languages: an unordered collection of key-value pairs.
+<p dir='rtl'>در جاوااسکریپت، اشیاء چیزی شبیه دیکشنری و یا نقشه در زبان های دیگر هستند: </p>
+<p dir='rtl'>یک مجموعه ی نامرتب از جفت های کلید-مقدار. </p>
+```js
 var myObj = {key1: "Hello", key2: "World"};
+```
 
-// Keys are strings, but quotes aren't required if they're a valid
-// JavaScript identifier. Values can be any type.
+<p dir='rtl'>کلید ها از نوع رشته هستند ولی در صورتی که مقدار معتبری برای اسم گزاری باشند نیازی به آوردن آنها درون گیومه نیست. </p>
+```js
 var myObj = {myKey: "myValue", "my other key": 4};
+```
 
-// Object attributes can also be accessed using the subscript syntax,
+<p dir='rtl'>اعضای یک شئ را نیز میتوانید با استفاده از کروشه در مقابل نام آنها استخراج کنید. </p>
+```js
 myObj["my other key"]; // = 4
+```
+
+```js
+///////////////////////////////////
 
 // ... or using the dot syntax, provided the key is a valid identifier.
 myObj.myKey; // = "myValue"

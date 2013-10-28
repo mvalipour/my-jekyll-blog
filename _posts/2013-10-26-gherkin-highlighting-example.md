@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "new post"
+title: "Gherkin syntax highlighting example"
 description: ""
 category: ""
 tags: []

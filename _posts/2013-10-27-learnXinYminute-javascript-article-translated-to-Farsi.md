@@ -216,22 +216,25 @@ var myObj = {myKey: "myValue", "my other key": 4};
 myObj["my other key"]; // = 4
 ```
 
+<p dir='rtl'>...و یا از طریق نقطه در صورتی که اسم عضو مورد نظر اسم معتبری برای اسم گزاری باشد.</p>
 ```js
-///////////////////////////////////
-
-// ... or using the dot syntax, provided the key is a valid identifier.
 myObj.myKey; // = "myValue"
+```
 
-// Objects are mutable; values can be changed and new keys added.
+<p dir='rtl'>اشیاء ناپایدار و قابل اضافه کردن عضو جدید هستند.</p>
+```js
 myObj.myThirdKey = true;
+```
 
-// If you try to access a value that's not yet set, you'll get undefined.
+<p dir='rtl'>اگر سعی کنید عضوی را که وجود ندارد استخراج کنید، مقدار undefined را دریافت خواهید کرد. </p>
+```js
 myObj.myFourthKey; // = undefined
+```
 
-///////////////////////////////////
-// 3. Logic and Control Structures
+<h2 dir='rtl'>3. منطق و ساختار کنترل</h2>
 
-// The if structure works as you'd expect.
+<p dir='rtl'>ساختار if به شکلی که انتظارش را دارید کار میکند.</p>
+```js
 var count = 1;
 if (count == 3){
     // evaluated if count is 3
@@ -240,70 +243,89 @@ if (count == 3){
 } else {
     // evaluated if it's not either 3 or 4
 }
+```
 
-// As does while.
+<p dir='rtl'>و همینطور حلقه while</p>
+```js
 while (true) {
     // An infinite loop!
 }
+```
 
-// Do-while loops are like while loops, except they always run at least once.
+<p dir='rtl'>حلقه do-while شبیه while است با این تفاوت که حداقل یکبار اجرا میشود.</p>
+```js
 var input
 do {
     input = getInput();
 } while (!isValid(input))
+```
 
-// the for loop is the same as C and Java:
-// initialisation; continue condition; iteration.
+<p dir='rtl'>حلقه for همانند زبان C و جاوا کار می کند.</p>
+<p dir='rtl'>مقدار دهی اولیه; شرط ادامه; چرخش حلقه</p>
+```js
 for (var i = 0; i < 5; i++){
     // will run 5 times
 }
+```
 
-// && is logical and, || is logical or
+<p dir='rtl'>عملگر && و || به ترتیب "و" و "یا" ی منطقی هستند.</p>
+```js
 if (house.size == "big" && house.colour == "blue"){
     house.contains = "bear";
 }
 if (colour == "red" || colour == "blue"){
     // colour is either red or blue
 }
+```
 
-// && and || "short circuit", which is useful for setting default values.
+<p dir='rtl'>از || همچنین میتوان برای تعیین مقدار پیشفرض استفاده کرد.</p>
+```js
 var name = otherName || "default";
+```
 
-///////////////////////////////////
-// 4. Functions, Scope and Closures
+<h2 dir='rtl'>4. توابع و مفاهیم گستره و بستار</h2>
 
-// JavaScript functions are declared with the function keyword.
+<p dir='rtl'>توابع در جاوااسکریپت با استفاده از کلیدواژه ی function تعریف میشوند.</p>
+```js
 function myFunction(thing){
     return thing.toUpperCase();
 }
 myFunction("foo"); // = "FOO"
+```
 
-// JavaScript functions are first class objects, so they can be reassigned to
-// different variable names and passed to other functions as arguments - for
-// example, when supplying an event handler:
+<p dir='rtl'>توابع در جاوااسکریپت نوعی شئ پایه محسوب میشوند، بنابر این می توانید آنها را به اشیاء مختلف</p>
+<p dir='rtl'>اضافه کنید و یا به عنوان پارامتر به توابع دیگر ارسال کنید.</p>
+<p dir='rtl'>- برای مثال وقتی که با یک رویداد کار میکنید.</p>
+```js
 function myFunction(){
     // this code will be called in 5 seconds' time
 }
 setTimeout(myFunction, 5000);
-// Note: setTimeout isn't part of the JS language, but is provided by browsers
-// and Node.js.
+```
 
-// Function objects don't even have to be declared with a name - you can write
-// an anonymous function definition directly into the arguments of another.
+<p dir='rtl'>توجه کنید که setTimeout تابعی تعریف شده در جاوااسکریپت نیست، ولی مرورگر ها و node.js از آن پشتیبانی میکنند.</p>
+
+
+<p dir='rtl'>توابع نیازی به داشتن اسم ندارند. برای  مثال وقتی تابعی را به تابعی دیگر ارسال میکنید</p>
+<p dir='rtl'>میتوانید آنرا به صورت بینام تعریف کنید.</p>
+```js
 setTimeout(function(){
     // this code will be called in 5 seconds' time
 }, 5000);
+```
 
-// JavaScript has function scope; functions get their own scope but other blocks
-// do not.
+<p dir='rtl'>توابع دارای محدوده ی متغیر های خود هستند.</p>
+<p dir='rtl'>بر خلاف دیگر ساختار ها - مانند if</p>
+```js
 if (true){
     var i = 5;
 }
 i; // = 5 - not undefined as you'd expect in a block-scoped language
+```
 
-// This has led to a common pattern of "immediately-executing anonymous
-// functions", which prevent temporary variables from leaking into the global
-// scope.
+<p dir='rtl'>به همین دلیل الگوی خاصی به نام "تابعی که بلافاصله صدا زده میشود" پدید آمده </p>
+<p dir='rtl'>تا از اضافه شدن متغیر های قسمتی از برنامه به گستره ی کلی برنامه جلوگیری شود.</p>
+```js
 (function(){
     var temporary = 5;
     // We can access the global scope by assiging to the 'global object', which
@@ -313,10 +335,12 @@ i; // = 5 - not undefined as you'd expect in a block-scoped language
 })();
 temporary; // raises ReferenceError
 permanent; // = 10
+```
 
-// One of JavaScript's most powerful features is closures. If a function is
-// defined inside another function, the inner function has access to all the
-// outer function's variables, even after the outer function exits.
+<p dir='rtl'>یکی از برترین ویژگی های جاوااسکریپت مفهومی با نام بستار است</p>
+<p dir='rtl'>بدین شکل که اگر تابعی درون تابع دیگری تعریف شود، تابع درونی به تمام متغیر های تابع خارجی دسترسی</p>
+<p dir='rtl'>خواهد داشت، حتی بعد از اینکه تابع خارجی به اتمام رسیده باشد.</p>
+```js
 function sayHelloInFiveSeconds(name){
     var prompt = "Hello, " + name + "!";
     function inner(){
@@ -329,20 +353,23 @@ function sayHelloInFiveSeconds(name){
     // access to the 'prompt' variable when it is finally called.
 }
 sayHelloInFiveSeconds("Adam"); // will open a popup with "Hello, Adam!" in 5s
+```
 
-///////////////////////////////////
-// 5. More about Objects; Constructors and Prototypes
+<h2 dir='rtl'>5. دیگر اشیاء، سازنده ها و پیش‌نمونه ها</h2>
 
-// Objects can contain functions.
+<p dir='rtl'>اشیاء میتوانند تابع داشته باشند.</p>
+```js
 var myObj = {
     myFunc: function(){
         return "Hello world!";
     }
 };
 myObj.myFunc(); // = "Hello world!"
+```
 
-// When functions attached to an object are called, they can access the object
-// they're attached to using the this keyword.
+<p dir='rtl'>وقتی تابع یک شی صدا زده می شود، تابع میتواند به سایر مقادیر درون آن شی </p>
+<p dir='rtl'>از طریق کلید واژه ی this دسترسی داشته باشد.</p>
+```js
 myObj = {
     myString: "Hello world!",
     myFunc: function(){
@@ -350,38 +377,49 @@ myObj = {
     }
 };
 myObj.myFunc(); // = "Hello world!"
+```
 
-// What this is set to has to do with how the function is called, not where
-// it's defined. So, our function doesn't work if it isn't called in the
-// context of the object.
+
+<p dir='rtl'>اینکه مقدار this چه باشد بستگی به این دارد که تابع چگونه صدا زده شود</p>
+<p dir='rtl'>نه اینکه تابع کجا تعریف شده است.</p>
+<p dir='rtl'>بنابر این تابع بالا اگر بدین شکل صدا زده شود کار نخواهد کرد</p>
+```js
 var myFunc = myObj.myFunc;
 myFunc(); // = undefined
+```
 
-// Inversely, a function can be assigned to the object and gain access to it
-// through this, even if it wasn't attached when it was defined.
+
+<p dir='rtl'>به همین شکل، تابعی که در جای دیگر تعریف شده را میتوانید به یک شی الحاق کنید</p>
+<p dir='rtl'>و بدین ترتیب تابع میتواند به مقادیر درون شی از طریق this دسترسی پیدا کند.</p>
+```js
 var myOtherFunc = function(){
     return this.myString.toUpperCase();
 }
 myObj.myOtherFunc = myOtherFunc;
 myObj.myOtherFunc(); // = "HELLO WORLD!"
+```
 
-// When you call a function with the new keyword, a new object is created, and
-// made available to the function via this. Functions designed to be called
-// like this are called constructors.
 
+<p dir='rtl'>اگر تابعی با کلید new صدا زده شوند، شی جدیدی ایجاد شده و تابع در گستره ی آن صدا زده میشود.</p>
+<p dir='rtl'>توابعی که بدین شکل صدا زده شوند در واقع نقش سازنده را ایفا می کنند.</p>
+```js
 var MyConstructor = function(){
     this.myNumber = 5;
 }
 myNewObj = new MyConstructor(); // = {myNumber: 5}
 myNewObj.myNumber; // = 5
+```
 
-// Every JavaScript object has a 'prototype'. When you go to access a property
-// on an object that doesn't exist on the actual object, the interpreter will
-// look at its prototype.
 
-// Some JS implementations let you access an object's prototype on the magic
-// property __proto__. While this is useful for explaining prototypes it's not
-// part of the standard; we'll get to standard ways of using prototypes later.
+<p dir='rtl'>تمامی اشیاء در جاوااسکریپت دارای  یک پیش نمونه هستند</p>
+<p dir='rtl'>به شکلی که اگر تابع صدا زده شده بر روی شی مستقیما روی آن تعریف نشده باشد</p>
+<p dir='rtl'>اجرا کننده ی برنامه در لیست پیش نمونه به دنبال آن تابع خواهد گشت</p>
+
+<p dir='rtl'>برخی اجرا کننده های جاوااسکریپت به شما اجازه ی دسترسی به پیش نمونه های یک شی را از</p>
+<p dir='rtl'>طریق عضو جادویی __proto__ میدهند.</p>
+<p dir='rtl'>هرچند این به شناخت پیش نمونه ها کمک میکند ولی در حیطه ی جاوااسکریپت استاندارد قرار نمیگیرد.</p>
+<p dir='rtl'>در ادامه شکل استاندارد پیش نمونه ها مورد بررسی قرار میگیرند.</p>
+```js
 var myObj = {
     myString: "Hello world!",
 };
@@ -393,36 +431,44 @@ var myPrototype = {
 };
 myObj.__proto__ = myPrototype;
 myObj.meaningOfLife; // = 42
+```
 
-// This works for functions, too.
+<p dir='rtl'>این موضوع در مورد توابع نیز صدق میکند.</p>
+```js
 myObj.myFunc(); // = "hello world!"
+```
 
-// Of course, if your property isn't on your prototype, the prototype's
-// prototype is searched, and so on.
+
+<p dir='rtl'>اگر عضو مورد نظر در پیش نمونه ی شی یافت نشود، پیش نمونه ی پیش نمونه جستجو شده و الی آخر</p>
+```js
 myPrototype.__proto__ = {
     myBoolean: true
 };
 myObj.myBoolean; // = true
+```
 
-// There's no copying involved here; each object stores a reference to its
-// prototype. This means we can alter the prototype and our changes will be
-// reflected everywhere.
+
+<p dir='rtl'>توجه داشته باشید که پیش نمونه ها کپی نمی شوند و هر شی جدید به پیش نمونه موجود اشاره میکند</p>
+<p dir='rtl'>بدین ترتیب اگر تابعی به پیش نمونه اضافه شود تمامی اشیاء میتوانند به آن دسترسی پیدا کنند.</p>
+```js
 myPrototype.meaningOfLife = 43;
 myObj.meaningOfLife; // = 43
+```
 
-// We mentioned that __proto__ was non-standard, and there's no standard way to
-// change the prototype of an existing object. However, there are two ways to
-// create a new object with a given prototype.
+<p dir='rtl'>پیش تر اشاره شد که __proto__ راه استانداردی برای دسترسی به پیش نمونه نیست و هیچ استانداردی نیز برای دسترسی به پیش نمونه ی یک شی موجود پیش بینی نشده است</p>
+<p dir='rtl'>ولی دو راه برای ارائه پیش نمونه برای اشیاء جدید وجود دارد.</p>
 
-// The first is Object.create, which is a recent addition to JS, and therefore
-// not available in all implementations yet.
+<p dir='rtl'>اولی وقتیست که از تابع Object.create استفاده میشود - که اخیرا به زبان اضافه شده است و بنابراین بر روی همه ی پیاده سازی های آن وجود ندارد.</p>
+```js
 var myObj = Object.create(myPrototype);
 myObj.meaningOfLife; // = 43
+```
 
-// The second way, which works anywhere, has to do with constructors.
-// Constructors have a property called prototype. This is *not* the prototype of
-// the constructor function itself; instead, it's the prototype that new objects
-// are given when they're created with that constructor and the new keyword.
+
+<p dir='rtl'>راه دوم - که همه جا قابل استفاده است - مربوط به سازنده ها می شود.</p>
+<p dir='rtl'>سازنده ها دارای عضوی با نام prototype هستند. این پیش نمونه ی خود سازنده نیست</p>
+<p dir='rtl'>بلکه پیش نمونه ایست که به تمامی اشیاء ساخته شده توسط این سازنده الحاق میشود.</p>
+```js
 MyConstructor.prototype = {
     myNumber: 5,
     getMyNumber: function(){
@@ -433,14 +479,19 @@ var myNewObj2 = new MyConstructor();
 myNewObj2.getMyNumber(); // = 5
 myNewObj2.myNumber = 6
 myNewObj2.getMyNumber(); // = 6
+```
 
-// Built-in types like strings and numbers also have constructors that create
-// equivalent wrapper objects.
+
+<p dir='rtl'>رشته ها و سایر سازنده های پیش ساخته ی زبان نیز دارای این ویژگی هستند.</p>
+```js
 var myNumber = 12;
 var myNumberObj = new Number(12);
 myNumber == myNumberObj; // = true
+```
 
-// Except, they aren't exactly equivalent.
+
+<p dir='rtl'>به جز این که این سازنده ها دقیقا مانند سازنده های دیگر نیستند.</p>
+```js
 typeof(myNumber); // = 'number'
 typeof(myNumberObj); // = 'object'
 myNumber === myNumberObj; // = false
@@ -450,20 +501,26 @@ if (0){
 if (Number(0)){
     // This code *will* execute, because Number(0) is truthy.
 }
+```
 
-// However, the wrapper objects and the regular builtins share a prototype, so
-// you can actually add functionality to a string, for instance.
+
+<p dir='rtl'>ولی به هر حال هم اشیاء عادی و هم اشیاء پیش ساخته هر دو در داشتن پیش نمونه مشترک هستند</p>
+<p dir='rtl'>بنابر این شما میتوانید ویژگی و تابع جدیدی به رشته ها - به عنوان مثال - اضافه کنید.</p>
+
+
+<p dir='rtl'>گاها به از این خاصیت با عنوان پلی فیل و برای اضافه کردن ویژگی های جدید به مجموعه ای از اشیاء فعلی زبان استفاده میشود </p>
+<p dir='rtl'>که کاربرد فراوانی در پشتیبانی از نسخه های قدیمیتر مرورگر ها دارد.</p>
+```js
 String.prototype.firstCharacter = function(){
     return this.charAt(0);
 }
 "abc".firstCharacter(); // = "a"
+```
 
-// This fact is often used in "polyfilling", which is implementing newer
-// features of JavaScript in an older subset of JavaScript, so that they can be
-// used in older environments such as outdated browsers.
 
-// For instance, we mentioned that Object.create isn't yet available in all
-// implementations, but we can still use it with this polyfill:
+<p dir='rtl'>برای مثال، پیشتر اشاره کردیم که Object.create در نسخه های جدید پشتیبانی نشده است</p>
+<p dir='rtl'>ولی میتوان آن را به صورت پلی فیل استفاده کرد.</p>
+```js
 if (Object.create === undefined){ // don't overwrite it if it exists
     Object.create = function(proto){
         // make a temporary constructor with the right prototype
@@ -475,26 +532,24 @@ if (Object.create === undefined){ // don't overwrite it if it exists
 }
 ```
 
-## Further Reading
+<h2 dir='rtl'> منابع دیگر </h2>
 
 The [Mozilla Developer
-Network](https://developer.mozilla.org/en-US/docs/Web/JavaScript) provides
-excellent documentation for JavaScript as it's used in browsers. Plus, it's a
-wiki, so as you learn more you can help others out by sharing your own
-knowledge.
+Network](https://developer.mozilla.org/en-US/docs/Web/JavaScript) 
+<p dir='rtl'>مرجعی بسیار خوب برای جاوااسکریپت به شکلی که در مرورگر ها مورد استفاده قرار گرفته است.</p>
+<p dir='rtl'>از آنجایی که این منبع یک ویکی میباشد همانطور که مطالب بیشتری یاد میگیرید میتوانید به دیگران نیز در یادگیری آن کمک کنید.</p>
 
 MDN's [A re-introduction to
 JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript)
-covers much of the concepts covered here in more detail. This guide has quite
-deliberately only covered the JavaScript language itself; if you want to learn
-more about how to use JavaScript in web pages, start by learning about the
+<p dir='rtl'>مشابه مطالبی که اینجا مطرح شده با جزییات بیشتر. در اینجا به شکل عمدی جاوااسکریپت فقط از دیدگاه زبان برنامه نویسی مورد بررسی قرار گرفته</p>
+<p dir='rtl'>در حالی که در این منبع میتوانید بیشتر از کاربرد آن در صفحات وب آشنایی پیدا کنید.</p>
 [Document Object
 Model](https://developer.mozilla.org/en-US/docs/Using_the_W3C_DOM_Level_1_Core)
 
-[Javascript Garden](http://bonsaiden.github.io/JavaScript-Garden/) is an in-depth
-guide of all the counter-intuitive parts of the language.
+[Javascript Garden](http://bonsaiden.github.io/JavaScript-Garden/) 
+<p dir='rtl'>راهنمای دقیقی از قسمت های غیر ملموس زبان.</p>
 
-In addition to direct contributors to this article, some content is adapted
-from Louie Dinh's Python tutorial on this site, and the [JS
+<p dir='rtl'>اضافه بر این در ویرایش این مقاله، قسمت هایی از سایت زیر مورد استفاده قرار گرفته است.</p>
+Louie Dinh's Python tutorial on this site, and the [JS
 Tutorial](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript)
 on the Mozilla Developer Network.
